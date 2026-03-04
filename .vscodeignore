@@ -1,0 +1,10 @@
+.github/**
+.jj/**
+.vscode/**
+src/**
+.eslintrc*
+eslint.config.mjs
+tsconfig.json
+build.mjs
+pnpm-lock.yaml
+dist/**/*.map

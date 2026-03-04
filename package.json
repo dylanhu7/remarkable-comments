@@ -1,0 +1,89 @@
+{
+  "name": "remarkable-comments",
+  "displayName": "Remarkable Comments",
+  "description": "Render Markdown from JS/TS doc comments on hover and open Mermaid previews.",
+  "version": "0.0.1",
+  "publisher": "dylanhu7",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "hover",
+    "markdown",
+    "jsdoc",
+    "mermaid",
+    "typescript",
+    "javascript"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onCommand:remarkableComments.openMermaidPreview"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "remarkableComments.openMermaidPreview",
+        "title": "Remarkable Comments: Open Mermaid Preview"
+      }
+    ],
+    "configuration": {
+      "title": "Remarkable Comments",
+      "properties": {
+        "remarkableComments.enableHover": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable markdown hover previews for JSDoc comments in JS/TS files."
+        },
+        "remarkableComments.enableMermaidLink": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show an action link in hover to open Mermaid preview when fenced mermaid blocks are present."
+        },
+        "remarkableComments.maxCommentLines": {
+          "type": "number",
+          "default": 200,
+          "minimum": 1,
+          "maximum": 2000,
+          "description": "Maximum number of lines to scan upwards when resolving an enclosing JSDoc block."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node ./build.mjs",
+    "watch": "node ./build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "vscode:prepublish": "pnpm build",
+    "package": "pnpm build && vsce package",
+    "ci": "pnpm lint && pnpm typecheck && pnpm build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/vscode": "^1.100.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "esbuild": "^0.25.10",
+    "eslint": "^9.36.0",
+    "mermaid": "^11.12.0",
+    "typescript": "^5.9.3",
+    "@vscode/vsce": "^3.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dylanhu7/remarkable-comments.git"
+  },
+  "homepage": "https://github.com/dylanhu7/remarkable-comments#readme",
+  "bugs": {
+    "url": "https://github.com/dylanhu7/remarkable-comments/issues"
+  }
+}
