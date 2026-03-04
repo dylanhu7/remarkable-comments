@@ -3,7 +3,7 @@
   "displayName": "Remarkable Comments",
   "description": "Render Markdown from JS/TS doc comments on hover and open Mermaid previews.",
   "version": "0.0.1",
-  "publisher": "dylanhu7",
+  "publisher": "dylanhu",
   "license": "MIT",
   "engines": {
     "vscode": "^1.100.0"
