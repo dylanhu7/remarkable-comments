@@ -2,7 +2,7 @@
 
 A minimal VS Code extension that:
 
-- Renders JSDoc comment content as Markdown in hover for JS/TS files.
+- Renders JSDoc and block comment content as Markdown in hover for JS/TS files.
 - Detects fenced Mermaid blocks inside those comments.
 - Adds an **Open rendered preview** action in hover for Mermaid blocks.
 
@@ -31,7 +31,7 @@ A minimal VS Code extension that:
  */
 ```
 
-Hover anywhere inside the doc comment to see markdown formatting.
+Hover anywhere inside the JSDoc or block comment to see markdown formatting.
 If Mermaid is present, click the hover action link to open a rendered diagram panel.
 
 ## Settings
@@ -58,7 +58,7 @@ This repo is configured so pushing a tag `v*` creates a GitHub Release with a `.
 
 1. Bump `version` in `package.json`.
 2. Commit and push `main`.
-3. Create/push a tag matching the version, e.g. `v0.0.1`.
+3. Create/push a tag matching the version, e.g. `v0.0.2`.
 4. GitHub Actions workflow `.github/workflows/release.yml` will:
    - install deps
    - run lint/typecheck/build (`pnpm run ci`)

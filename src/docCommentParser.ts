@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 
 import type { DocCommentInfo } from "./types";
 
-const DOC_COMMENT_START = /^\s*\/\*\*/;
+const BLOCK_COMMENT_START = /^\s*\/\*(?!\/)/;
 
 export function findEnclosingDocComment(
   document: vscode.TextDocument,
@@ -44,7 +44,7 @@ function findDocCommentStartLine(
     if (line < fromLine && text.includes("*/")) {
       return undefined;
     }
-    if (DOC_COMMENT_START.test(text)) {
+    if (BLOCK_COMMENT_START.test(text)) {
       return line;
     }
   }
@@ -71,13 +71,13 @@ function extractDocCommentMarkdown(
   for (let line = startLine; line <= endLine; line += 1) {
     const text = document.lineAt(line).text;
     if (startLine === endLine) {
-      const singleLine = text.replace(/^\s*\/\*\*/, "").replace(/\*\/\s*$/, "");
+      const singleLine = text.replace(/^\s*\/\*\*?/, "").replace(/\*\/\s*$/, "");
       lines.push(stripJSDocLinePrefix(singleLine));
       continue;
     }
 
     if (line === startLine) {
-      lines.push(stripJSDocLinePrefix(text.replace(/^\s*\/\*\*/, "")));
+      lines.push(stripJSDocLinePrefix(text.replace(/^\s*\/\*\*?/, "")));
       continue;
     }
 

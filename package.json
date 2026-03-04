@@ -2,7 +2,7 @@
   "name": "remarkable-comments",
   "displayName": "Remarkable Comments",
   "description": "Render Markdown from JS/TS doc comments on hover and open Mermaid previews.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "dylanhu",
   "license": "MIT",
   "engines": {
@@ -41,7 +41,7 @@
         "remarkableComments.enableHover": {
           "type": "boolean",
           "default": true,
-          "description": "Enable markdown hover previews for JSDoc comments in JS/TS files."
+          "description": "Enable markdown hover previews for JSDoc and block comments in JS/TS files."
         },
         "remarkableComments.enableMermaidLink": {
           "type": "boolean",
